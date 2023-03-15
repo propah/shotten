@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include "Card.h"
+#include "Option.h"
 
 enum class PlayerNumber {
 	ONE,
@@ -18,5 +19,6 @@ public:
 	void removeCard(Card card);
 	void displayHand();
 	std::vector<Card> getHand();
+	Option<Card> getCard(int number);
 };
 

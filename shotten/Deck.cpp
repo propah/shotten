@@ -13,13 +13,13 @@ Deck::Deck()
 	std::shuffle(this->cards.begin(), this->cards.end(), rng);
 }
 
-std::optional<Card> Deck::drawCard()
+Option<Card> Deck::drawCard()
 {
 	if (this->cards.empty()) {
 		std::cout << "INFO: Deck is empty\n";
-		return {};
+		return Option<Card>();
 	}
 	Card temp_card = this->cards[this->cards.size()-1];
 	this->cards.pop_back();
-	return temp_card;
+	return Option(&temp_card);
 }

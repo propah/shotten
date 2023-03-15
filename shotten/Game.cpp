@@ -8,12 +8,12 @@ Game::Game()
 	this->player2 = Player();
 	this->current_player = 1;
 	for (int i = 0; i < 6; i++) {
-		auto temp = this->deck.drawCard();
-		if (temp.has_value()) {
+		Option<Card> temp = this->deck.drawCard();
+		if (temp) {
 			this->player1.addCard(temp.value());
 		}
 		temp = this->deck.drawCard();
-		if (temp.has_value()) {
+		if (temp) {
 			this->player2.addCard(temp.value());
 		}
 	}
@@ -39,7 +39,7 @@ void Game::nextTurn()
 		this->player1.removeCard(selected_card);
 		this->board.placeCard(input_landmark_num - 1, selected_card, PlayerNumber::ONE);
 		auto temp = this->deck.drawCard();
-		if (temp.has_value()) {
+		if (temp) {
 			this->player1.addCard(temp.value());
 		}
 		this->current_player = 2;
@@ -54,7 +54,7 @@ void Game::nextTurn()
 		this->player2.removeCard(selected_card);
 		this->board.placeCard(input_landmark_num - 1, selected_card, PlayerNumber::TWO);
 		auto temp = this->deck.drawCard();
-		if (temp.has_value()) {
+		if (temp) {
 			this->player2.addCard(temp.value());
 		}
 		this->current_player = 1;

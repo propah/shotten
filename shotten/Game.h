@@ -1,6 +1,7 @@
 #pragma once
 #include "Board.h"
 #include "Player.h"
+#include "Option.h"
 #include <iostream>
 #include <cstdlib>
 class Game

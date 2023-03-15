@@ -34,3 +34,15 @@ std::vector<Card> Player::getHand()
 {
 	return this->hand;
 }
+
+Option<Card> Player::getCard(int number) {
+	if (this->hand.empty()) {
+		std::cout << "ERROR: Hand is empty but still requested a card\n";
+		return Option<Card>();
+	}
+	if (number > this->hand.size()) {
+		std::cout << "ERROR: Card requested is not in hand";
+		return Option<Card>();
+	}
+	return Option<Card>(&this->hand[number]);
+}
