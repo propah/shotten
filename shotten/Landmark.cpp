@@ -115,6 +115,87 @@ int Landmark::getPoints(PlayerNumber number)
 	return points;
 }
 
+bool Landmark::winPossibility(Player player)
+{
+	if(this->player_1_cards.size()==3){
+		Combination player1Combination = this->getCombination(PlayerNumber::ONE);
+		if(this->player_2_cards.size()==2){
+			for(auto card : player.getHand()){
+				player_2_cards.push_back(card);	
+				Combination player2Combination = this->getCombination(PlayerNumber::TWO);
+				if(player1Combination < player2Combination){
+					player_2_cards.pop_back();
+					return false;
+				}else if(player1Combination == player2Combination){
+					if(this->getPoints(PlayerNumber::ONE) < this->getPoints(PlayerNumber::TWO)){
+						player_2_cards.pop_back();
+						return false;
+					}
+				}
+				player_2_cards.pop_back();
+			}
+			return true;
+		}else if(this->player_2_cards.size()==1){
+			for(auto card : player.getHand()){
+				player_2_cards.push_back(card);
+				for(auto card2 : player.getHand()){
+					if(card.getColor() != card2.getColor() && card.getNumber() != card2.getNumber()){
+						player_2_cards.push_back(card2);
+						Combination player2Combination = this->getCombination(PlayerNumber::TWO);
+						if(player1Combination < player2Combination){
+							player_2_cards.pop_back();
+							player_2_cards.pop_back();
+							return false;
+						}else if(player1Combination == player2Combination){
+							if(this->getPoints(PlayerNumber::ONE) < this->getPoints(PlayerNumber::TWO)){
+								player_2_cards.pop_back();
+								player_2_cards.pop_back();
+								return false;
+							}
+						}
+						player_2_cards.pop_back();
+					}
+				}
+				player_2_cards.pop_back();
+			}
+			return true;
+		}else if(this->player_2_cards.size()==0){
+			for(auto card : player.getHand()){
+				player_2_cards.push_back(card);
+				for(auto card2 : player.getHand()){
+					if(card.getColor() != card2.getColor() && card.getNumber() != card2.getNumber()){
+						player_2_cards.push_back(card2);
+						for(auto card3 : player.getHand()){
+							if(card3.getColor() != card2.getColor() && card3.getNumber() != card2.getNumber() && card3.getColor() != card.getColor() && card3.getNumber() != card.getNumber()){
+								player_2_cards.push_back(card3);
+								Combination player2Combination = this->getCombination(PlayerNumber::TWO);
+								if(player1Combination < player2Combination){
+									player_2_cards.pop_back();
+									player_2_cards.pop_back();
+									player_2_cards.pop_back();
+									return false;
+								}else if(player1Combination == player2Combination){
+									if(this->getPoints(PlayerNumber::ONE) < this->getPoints(PlayerNumber::TWO)){
+										player_2_cards.pop_back();
+										player_2_cards.pop_back();
+										player_2_cards.pop_back();
+										return false;
+									}
+								}
+								player_2_cards.pop_back();
+							}
+						}
+						player_2_cards.pop_back();
+					}
+				}
+				player_2_cards.pop_back();
+			}
+			return true;	
+		}
+	}
+	
+}
+
 void Landmark::addCard(Card card, PlayerNumber number)
 {
 	switch (number) {

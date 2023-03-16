@@ -81,6 +81,9 @@ void Game::checkWaiting(int position){
 	Landmark landmark = this->board.getLandMark(position);
 	std::vector<Card> player1Card = landmark.getCards(PlayerNumber::ONE);
 	std::vector<Card> player2Card = landmark.getCards(PlayerNumber::TWO);
+	if(landmark.getStatus() == LandMarkStatus::WAITING_1 && player1Card.size() == 3){
+		
+	}
 }
 
 int Game::checkWinner()

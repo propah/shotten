@@ -16,5 +16,6 @@ public:
 	void nextTurn();
 	int checkWinner();
 	void updateStatus(int position);
+	void checkWaiting(int position);
 };
 
