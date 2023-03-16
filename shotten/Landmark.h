@@ -42,6 +42,6 @@ public:
 	Combination getCombination(PlayerNumber number);
 	int getPoints(PlayerNumber number);
 	void setStatus(LandMarkStatus status);
-	int getLowestCard(PlayerNumber number);
+	bool winPossibility(Player player, PlayerNumber waiting, PlayerNumber versus);
 };
 
