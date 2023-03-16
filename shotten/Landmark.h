@@ -9,16 +9,18 @@
 enum class LandMarkStatus {
 	UNFINISHED,
 	FINISHED,
+	WINNER_1,
+	WINNER_2,
 	WAITING_1,
-	WAITING_2
+	WAITING_2,
 };
 
 enum class Combination {
-	COLOR_RUN,
-	THREE_KIND,
-	COLOR,
+	SUM,
 	RUN,
-	SUM
+	COLOR,
+	THREE_KIND,
+	COLOR_RUN
 };
 
 class Landmark
@@ -27,7 +29,7 @@ private:
 	std::vector<Card> player_2_cards;
 	std::vector<Card> player_1_cards;
 	bool isFinished();
-
+	LandMarkStatus status;
 	bool isColorRun(PlayerNumber number);
 	bool isThreeKind(PlayerNumber number);
 	bool isColor(PlayerNumber number);
@@ -38,5 +40,7 @@ public:
 	void addCard(Card card, PlayerNumber number);
 	LandMarkStatus getStatus();
 	Combination getCombination(PlayerNumber number);
+	int getPoints(PlayerNumber number);
+	void setStatus(LandMarkStatus status);
 };
 

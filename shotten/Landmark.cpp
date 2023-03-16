@@ -2,6 +2,7 @@
 
 Landmark::Landmark()
 {
+	this->status = LandMarkStatus::UNFINISHED;
 	this->player_1_cards = std::vector<Card>();
 	this->player_2_cards = std::vector<Card>();
 }
@@ -98,6 +99,21 @@ std::vector<Card> Landmark::getCards(PlayerNumber number)
 	}
 }
 
+int Landmark::getPoints(PlayerNumber number)
+{
+	int points = 0;
+	std::vector<Card> current_cards;
+	if (number == PlayerNumber::ONE) {
+		current_cards = this->player_1_cards;
+	}
+	else {
+		current_cards = this->player_2_cards;
+	}
+	for (auto card : current_cards) {
+		points += card.getNumber();
+	}
+	return points;
+}
 
 void Landmark::addCard(Card card, PlayerNumber number)
 {
@@ -117,4 +133,9 @@ void Landmark::addCard(Card card, PlayerNumber number)
 LandMarkStatus Landmark::getStatus()
 {
 	return LandMarkStatus();
+}
+
+void Landmark::setStatus(LandMarkStatus status)
+{
+	this->status = status;
 }

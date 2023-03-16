@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/shotten.dir/Board.cpp.o CMakeFiles/shotten.dir/Card.cpp.o CMakeFiles/shotten.dir/Deck.cpp.o CMakeFiles/shotten.dir/Game.cpp.o CMakeFiles/shotten.dir/Landmark.cpp.o CMakeFiles/shotten.dir/Player.cpp.o CMakeFiles/shotten.dir/main.cpp.o -o shotten 

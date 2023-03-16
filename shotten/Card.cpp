@@ -16,3 +16,4 @@ CardColor Card::getColor()
 	return this->color;
 }
 
+

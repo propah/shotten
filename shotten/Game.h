@@ -14,6 +14,7 @@ private:
 public:
 	Game();
 	void nextTurn();
-
+	int checkWinner();
+	void updateStatus(int position);
 };
 
