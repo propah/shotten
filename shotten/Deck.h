@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <functional>
 #include <random>
+#include <memory>
 
 static const int DECK_SIZE = 54;
 class Deck

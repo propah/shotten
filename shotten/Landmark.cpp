@@ -11,14 +11,14 @@ bool Landmark::isFinished()
 	return this->player_1_cards.size() >= 3 && this->player_2_cards.size() >= 3;
 }
 
-bool Landmark::isColorRun(PlayerNumber number)
+bool Landmark::isColorRun(PlayerNumber number) const
 {
 	if (this->isColor(number) && this->isRun(number)) 
 		return true;
 	return false;
 }
 
-bool Landmark::isThreeKind(PlayerNumber number)
+bool Landmark::isThreeKind(PlayerNumber number) const
 {
 	std::vector<Card> current_cards;
 	if (number == PlayerNumber::ONE) {
@@ -30,7 +30,7 @@ bool Landmark::isThreeKind(PlayerNumber number)
 	return current_cards[0].getNumber() == current_cards[1].getNumber() == current_cards[2].getNumber();
 }
 
-bool Landmark::isColor(PlayerNumber number)
+bool Landmark::isColor(PlayerNumber number) const
 {
 	std::vector<Card> current_cards;
 	if (number == PlayerNumber::ONE) {
@@ -48,7 +48,7 @@ bool Landmark::isColor(PlayerNumber number)
 	return true;
 }
 
-bool Landmark::isRun(PlayerNumber number)
+bool Landmark::isRun(PlayerNumber number) const
 {
 	std::vector<Card> current_cards;
 	if (number == PlayerNumber::ONE) {
@@ -66,7 +66,7 @@ bool Landmark::isRun(PlayerNumber number)
 	return (max_val - min_val == 2);
 }
 
-Combination Landmark::getCombination(PlayerNumber number)
+Combination Landmark::getCombination(PlayerNumber number) const
 {
 	if (this->isColorRun(number)) {
 		return Combination::COLOR_RUN;
@@ -85,7 +85,7 @@ Combination Landmark::getCombination(PlayerNumber number)
 	}
 }
 
-std::vector<Card> Landmark::getCards(PlayerNumber number)
+std::vector<Card> Landmark::getCards(PlayerNumber number) const
 {
 	switch (number) {
 	case PlayerNumber::ONE:
@@ -114,7 +114,7 @@ void Landmark::addCard(Card card, PlayerNumber number)
 	}
 }
 
-LandMarkStatus Landmark::getStatus()
+LandMarkStatus Landmark::getStatus() const
 {
 	return LandMarkStatus();
 }

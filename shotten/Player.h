@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <memory>
 #include "Card.h"
 #include "Option.h"
 
@@ -17,8 +18,8 @@ public:
 	Player();
 	void addCard(Card card);
 	void removeCard(Card card);
-	void displayHand();
-	std::vector<Card> getHand();
-	Option<Card> getCard(int number);
+	void displayHand() const;
+	std::vector<Card> getHand() const;
+	Option<Card> getCard(int number) const;
 };
 

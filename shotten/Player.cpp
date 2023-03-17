@@ -21,7 +21,7 @@ void Player::removeCard(Card card)
 	std::cout << "WARNING: Couldn't remove card in player's hand\n";
 }
 
-void Player::displayHand()
+void Player::displayHand() const
 {
 	std::cout << "Your hand: ";
 	for (Card card : this->hand) {
@@ -30,12 +30,13 @@ void Player::displayHand()
 	std::cout << "\n";
 }
 
-std::vector<Card> Player::getHand()
+std::vector<Card> Player::getHand() const
 {
 	return this->hand;
 }
 
-Option<Card> Player::getCard(int number) {
+Option<Card> Player::getCard(int number) const
+{
 	if (this->hand.empty()) {
 		std::cout << "ERROR: Hand is empty but still requested a card\n";
 		return Option<Card>();
@@ -44,5 +45,5 @@ Option<Card> Player::getCard(int number) {
 		std::cout << "ERROR: Card requested is not in hand";
 		return Option<Card>();
 	}
-	return Option<Card>(&this->hand[number]);
+	return Option<Card>(std::make_unique<Card>(this->hand[number]));
 }

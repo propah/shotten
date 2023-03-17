@@ -1,6 +1,6 @@
 #include "Board.h"
 
-bool Board::isNumberValid(int number)
+bool Board::isNumberValid(int number) const
 {
 	if (number >= BOARD_SIZE || number < 0) {
 		return false;
@@ -16,12 +16,12 @@ Board::Board()
 	}
 }
 
-std::vector<Landmark> Board::getLandmarks()
+std::vector<Landmark> Board::getLandmarks() const
 {
 	return this->landmarks;
 }
 
-Landmark Board::getLandMark(int number)
+Landmark Board::getLandMark(int number) const
 {
 	if (!this->isNumberValid(number)) {
 		std::cout << "ERROR: Wrong LandMark asked, returning first landmark\n";
@@ -30,7 +30,7 @@ Landmark Board::getLandMark(int number)
 	return this->landmarks[number];
 }
 
-int Board::getSize()
+int Board::getSize() const
 {
 	return static_cast<int>(this->landmarks.size());
 }
@@ -49,7 +49,7 @@ void Board::placeCard(int number, Card card, PlayerNumber player_number)
 	}
 }
 
-void Board::display()
+void Board::display() const
 {
 	std::vector<Card> line1 = std::vector<Card>();
 	std::vector<Card> line2 = std::vector<Card>();

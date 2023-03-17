@@ -1,36 +1,36 @@
 #pragma once
-
+#include <memory>
 template<typename T>
 class Option
 {
 private:
-	T* element;
+	std::unique_ptr<T> element;
 	bool is_none;
 public:
 	operator int() { return !is_none; }
-	bool isNone();
-	T value();
-	Option(T* element);
+	bool isNone() const;
+	T value() const;
+	Option(std::unique_ptr<T> element);
 	Option();
 };
 
 template<typename T>
-bool Option<T>::isNone()
+bool Option<T>::isNone() const
 {
 	return this->is_none;
 }
 
 template<typename T>
-T Option<T>::value()
+T Option<T>::value() const
 {
 	if (is_none) { throw "ERROR: Object was none"; }
 	return *this->element;
 }
 
 template<typename T>
-Option<T>::Option(T* element)
+Option<T>::Option(std::unique_ptr<T> element)
 {
-	this->element = element;
+	this->element = std::move(element);
 	this->is_none = false;
 }
 

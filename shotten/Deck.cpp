@@ -21,5 +21,5 @@ Option<Card> Deck::drawCard()
 	}
 	Card temp_card = this->cards[this->cards.size()-1];
 	this->cards.pop_back();
-	return Option(&temp_card);
+	return Option(std::make_unique<Card>(temp_card));
 }

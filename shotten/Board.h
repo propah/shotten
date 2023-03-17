@@ -12,13 +12,13 @@ class Board
 private:
 	std::vector<Landmark> landmarks;
 
-	bool isNumberValid(int number);
+	bool isNumberValid(int number) const;
 public:
 	Board();
-	std::vector<Landmark> getLandmarks();
-	Landmark getLandMark(int number);
-	int getSize();
+	std::vector<Landmark> getLandmarks() const;
+	Landmark getLandMark(int number) const;
+	int getSize() const;
 	void placeCard(int number, Card card, PlayerNumber player_number);
-	void display();
+	void display() const;
 };
 

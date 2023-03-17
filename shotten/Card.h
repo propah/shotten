@@ -20,8 +20,8 @@ private:
 	CardColor color;
 public:
 	Card(int number, CardColor color);
-	int getNumber();
-	CardColor getColor();
+	int getNumber() const;
+	CardColor getColor() const;
 	friend bool operator==(const Card& card_left, const Card& card_right) {
 		return card_left.color == card_right.color && card_left.number == card_right.number;
 	}

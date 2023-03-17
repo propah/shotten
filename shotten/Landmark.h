@@ -28,15 +28,15 @@ private:
 	std::vector<Card> player_1_cards;
 	bool isFinished();
 
-	bool isColorRun(PlayerNumber number);
-	bool isThreeKind(PlayerNumber number);
-	bool isColor(PlayerNumber number);
-	bool isRun(PlayerNumber number);
+	bool isColorRun(PlayerNumber number) const;
+	bool isThreeKind(PlayerNumber number) const;
+	bool isColor(PlayerNumber number) const;
+	bool isRun(PlayerNumber number) const;
 public:
 	Landmark();
-	std::vector<Card> getCards(PlayerNumber number);
+	std::vector<Card> getCards(PlayerNumber number) const;
 	void addCard(Card card, PlayerNumber number);
-	LandMarkStatus getStatus();
-	Combination getCombination(PlayerNumber number);
+	LandMarkStatus getStatus() const;
+	Combination getCombination(PlayerNumber number) const;
 };
 

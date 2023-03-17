@@ -6,12 +6,12 @@ Card::Card(int number, CardColor color) {
 	this->color = color;
 }
 
-int Card::getNumber()
+int Card::getNumber() const
 {
 	return this->number;
 }
 
-CardColor Card::getColor()
+CardColor Card::getColor() const
 {
 	return this->color;
 }
