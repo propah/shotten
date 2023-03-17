@@ -23,3 +23,8 @@ std::optional<Card> Deck::drawCard()
 	this->cards.pop_back();
 	return temp_card;
 }
+
+std::vector<Card> Deck::getDeck()
+{
+	return this->cards;
+}

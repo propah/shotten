@@ -15,5 +15,6 @@ private:
 public:
 	Deck();
 	std::optional<Card> drawCard();
+	std::vector<Card> getDeck();
 };
 

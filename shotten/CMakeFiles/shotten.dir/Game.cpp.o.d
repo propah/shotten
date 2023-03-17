@@ -149,6 +149,7 @@ CMakeFiles/shotten.dir/Game.cpp.o: \
  /run/media/windows/Users/0x6d6f69/Documents/UTC/S2/AI22/projet/shotten/shotten/Card.h \
  /usr/include/c++/12.2.1/sstream /usr/include/c++/12.2.1/bits/sstream.tcc \
  /run/media/windows/Users/0x6d6f69/Documents/UTC/S2/AI22/projet/shotten/shotten/Player.h \
+ /run/media/windows/Users/0x6d6f69/Documents/UTC/S2/AI22/projet/shotten/shotten/Deck.h \
  /usr/include/c++/12.2.1/algorithm \
  /usr/include/c++/12.2.1/bits/stl_algo.h \
  /usr/include/c++/12.2.1/bits/algorithmfwd.h \
@@ -160,7 +161,6 @@ CMakeFiles/shotten.dir/Game.cpp.o: \
  /usr/include/c++/12.2.1/bits/ranges_util.h \
  /usr/include/c++/12.2.1/pstl/glue_algorithm_defs.h \
  /usr/include/c++/12.2.1/pstl/execution_defs.h \
- /run/media/windows/Users/0x6d6f69/Documents/UTC/S2/AI22/projet/shotten/shotten/Deck.h \
  /usr/include/c++/12.2.1/functional /usr/include/c++/12.2.1/tuple \
  /usr/include/c++/12.2.1/bits/uses_allocator.h \
  /usr/include/c++/12.2.1/bits/std_function.h \

@@ -1,6 +1,7 @@
 #pragma once
 #include "Card.h"
 #include "Player.h"
+#include "Deck.h"
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -30,18 +31,19 @@ private:
 	std::vector<Card> player_1_cards;
 	bool isFinished();
 	LandMarkStatus status;
-	bool isColorRun(PlayerNumber number);
-	bool isThreeKind(PlayerNumber number);
-	bool isColor(PlayerNumber number);
-	bool isRun(PlayerNumber number);
+	bool isColorRun(std::vector<Card> current_cards);
+	bool isThreeKind(std::vector<Card> current_cards);
+	bool isColor(std::vector<Card> current_cards);
+	bool isRun(std::vector<Card> current_cards);
 public:
 	Landmark();
 	std::vector<Card> getCards(PlayerNumber number);
 	void addCard(Card card, PlayerNumber number);
 	LandMarkStatus getStatus();
-	Combination getCombination(PlayerNumber number);
-	int getPoints(PlayerNumber number);
+	Combination getCombination(std::vector<Card> current_cardr);
+	int getPoints(std::vector<Card> current_cards);
 	void setStatus(LandMarkStatus status);
-	bool winPossibility(Player player, PlayerNumber waiting, PlayerNumber versus);
+	bool winPossibility(Player player, PlayerNumber waiting, PlayerNumber versus, Deck deck);
+	std::string combinationType(Combination cbn);
 };
 
