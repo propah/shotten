@@ -9,7 +9,6 @@
 
 enum class LandMarkStatus {
 	UNFINISHED,
-	FINISHED,
 	WINNER_1,
 	WINNER_2,
 	WAITING_1,
