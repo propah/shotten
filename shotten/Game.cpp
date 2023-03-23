@@ -88,7 +88,6 @@ void Game::updateStatus(int position)
 			this->checkWinner();
 		}
 	}else if (player1Card.size() == 3 && player2Card.size() == 3) {
-		landmark.setStatus(LandMarkStatus::FINISHED);
 		this->checkWinner();
 	}
 }
@@ -104,17 +103,16 @@ int Game::checkWinner()
 	std::vector<Card> player2Cards = landmark[0].getCards(PlayerNumber::TWO);
 	for (int i = 0; i < 9; i++) {
 		LandMarkStatus gameStatus = landmark[i].getStatus();
-		if (gameStatus == LandMarkStatus::FINISHED) {
-			Combination combination1 = landmark[i].getCombination(player1Cards);
-			Combination combination2 = landmark[i].getCombination(player2Cards);
-			if(combination1 == combination2) {
-				int player1Pts = landmark[i].getPoints(player1Cards);
-				int player2Pts = landmark[i].getPoints(player2Cards);
-				landmark[i].setStatus(player1Pts > player2Pts ? LandMarkStatus::WINNER_1 : LandMarkStatus::WINNER_2);	
-			}else{
-				landmark[i].setStatus(combination1 > combination2 ? LandMarkStatus::WINNER_1 : LandMarkStatus::WINNER_2);
-			}
+		Combination combination1 = landmark[i].getCombination(player1Cards);
+		Combination combination2 = landmark[i].getCombination(player2Cards);
+		if(combination1 == combination2) {
+			int player1Pts = landmark[i].getPoints(player1Cards);
+			int player2Pts = landmark[i].getPoints(player2Cards);
+			landmark[i].setStatus(player1Pts > player2Pts ? LandMarkStatus::WINNER_1 : LandMarkStatus::WINNER_2);	
+		}else{
+			landmark[i].setStatus(combination1 > combination2 ? LandMarkStatus::WINNER_1 : LandMarkStatus::WINNER_2);
 		}
+
 		if (landmark[i].getStatus() == LandMarkStatus::WINNER_1) {
 			player1Streak++;
 			player1Total += landmark[i].getPoints(player1Cards);
