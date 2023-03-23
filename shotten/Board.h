@@ -20,5 +20,6 @@ public:
 	int getSize();
 	void placeCard(int number, Card card, PlayerNumber player_number);
 	void display();
+	std::string toString(Combination cbn);	
 };
 

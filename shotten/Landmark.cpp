@@ -46,30 +46,6 @@ bool Landmark::isRun(std::vector<Card> current_cards)
 	return (max_val - min_val == 2);
 }
 
-std::string Landmark::combinationType(Combination cbn)
-{
-	switch (cbn) {
-	case Combination::SUM:
-		return "SUM";
-		break;
-	case Combination::RUN:
-		return "RUN";
-		break;
-	case Combination::COLOR:
-		return "COLOR";
-		break;
-	case Combination::THREE_KIND:
-		return "THREE_KIND";
-		break;
-	case Combination::COLOR_RUN:
-		return "COLOR_RUN";
-		break;
-	default:
-		return "UNKNOWN";
-		break;
-	}
-}
-
 Combination Landmark::getCombination(std::vector<Card> current_cards)
 {
 	if (this->isColorRun(current_cards)) {
@@ -142,8 +118,6 @@ bool Landmark::winPossibility(Player player, PlayerNumber waiting, PlayerNumber 
 			for(auto card : cardList){
 				versusDeck.push_back(card);
 				Combination versusCombination = this->getCombination(versusDeck);
-				std::cout<<"waitingCombination : "<<combinationType(waitingCombination)<<std::endl;
-				std::cout<<"versusCombination : "<<combinationType(versusCombination)<<std::endl;
 				if(waitingCombination < versusCombination){
 					return false;
 				}else if(waitingCombination == versusCombination){

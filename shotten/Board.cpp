@@ -129,3 +129,26 @@ void Board::display()
 		std::cout << "\n";
 	}
 }
+
+std::string Board::toString(Combination cbn){
+	switch (cbn) {
+	case Combination::SUM:
+		return "SUM";
+		break;
+	case Combination::RUN:
+		return "RUN";
+		break;
+	case Combination::COLOR:
+		return "COLOR";
+		break;
+	case Combination::THREE_KIND:
+		return "THREE_KIND";
+		break;
+	case Combination::COLOR_RUN:
+		return "COLOR_RUN";
+		break;
+	default:
+		return "UNKNOWN";
+		break;
+	}
+}

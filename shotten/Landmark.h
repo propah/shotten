@@ -34,6 +34,7 @@ private:
 	bool isThreeKind(std::vector<Card> current_cards);
 	bool isColor(std::vector<Card> current_cards);
 	bool isRun(std::vector<Card> current_cards);
+	
 public:
 	Landmark();
 	std::vector<Card> getCards(PlayerNumber number);
@@ -43,6 +44,5 @@ public:
 	int getPoints(std::vector<Card> current_cards);
 	void setStatus(LandMarkStatus status);
 	bool winPossibility(Player player, PlayerNumber waiting, PlayerNumber versus, Deck deck);
-	std::string combinationType(Combination cbn);
 };
 
